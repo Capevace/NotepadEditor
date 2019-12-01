@@ -57,13 +57,13 @@ extension String {
     /// - returns: The NSRegularExpression.
     func toRegex() -> NSRegularExpression {
         var pattern: NSRegularExpression = NSRegularExpression()
-
+        
         do {
-            try pattern = NSRegularExpression(pattern: self, options: .anchorsMatchLines)
+            try pattern = NSRegularExpression(pattern: self, options: [.anchorsMatchLines, .dotMatchesLineSeparators])
         } catch {
             print(error)
         }
-
+        
         return pattern
     }
 
